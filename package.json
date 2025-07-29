@@ -1,0 +1,25 @@
+{
+  "name": "UASMLang",
+  "displayName": "UrmoterAssemblyLanguageSupport",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "uasm",
+      "aliases": ["Urmoter's assembly", "uasm"],
+      "extensions": [".uasm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "uasm",
+      "scopeName": "source.uasm",
+      "path": "./syntaxes/uasm.tmLanguage.json"
+    }]
+  }
+}
