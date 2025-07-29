@@ -9,6 +9,7 @@
     { "include": "#registers" },
     { "include": "#addresses" },
     { "include": "#immediates" },
+    { "include": "#strings" },
     { "include": "#label-refs" }
   ],
   "repository": {
@@ -24,7 +25,7 @@
       "patterns": [
         {
           "name": "keyword.directive.urmoterasm",
-          "match": "\\.(setloc|start)"
+          "match": "\\.(setloc|start|string)"
         }
       ]
     },
@@ -72,11 +73,26 @@
         }
       ]
     },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.urmoterasm",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escape.urmoterasm"
+            }
+          ]
+        }
+      ]
+    },
     "label-refs": {
       "patterns": [
         {
           "name": "entity.name.function.urmoterasm",
-          "match": "\\b(?!NOP|MOVA|MOVB|MOVC|MOVD|CPY|STR|LDR|ADD|SUB|INC|DEC|ADC|SBB|NEG|FLP|PSHI|PSHR|POP|JMP|CALL|RET|JZ|JNZ|HLT|JU|JNU|SETU|CLRU|SETZ|CLRZ|SETN|CLRN|SETP|CLRP|SETC|CLRC|AND|OR|XOR|NOT|JE|JNE|JG|JL|PRNI|PRNR|ENPR|JC|JNC|JN|JNN|JP|JNP|IBPR|LDRO|LBL|setloc|start)[a-zA-Z_][a-zA-Z0-9_]*\\b"
+          "match": "\\b(?!NOP|MOVA|MOVB|MOVC|MOVD|CPY|STR|LDR|ADD|SUB|INC|DEC|ADC|SBB|NEG|FLP|PSHI|PSHR|POP|JMP|CALL|RET|JZ|JNZ|HLT|JU|JNU|SETU|CLRU|SETZ|CLRZ|SETN|CLRN|SETP|CLRP|SETC|CLRC|AND|OR|XOR|NOT|JE|JNE|JG|JL|PRNI|PRNR|ENPR|JC|JNC|JN|JNN|JP|JNP|IBPR|LDRO|LBL|setloc|start|string)[a-zA-Z_][a-zA-Z0-9_]*\\b"
         }
       ]
     }
